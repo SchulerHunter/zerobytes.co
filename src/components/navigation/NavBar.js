@@ -12,10 +12,9 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
-import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import BookIcon from "@material-ui/icons/Book";
-import NavigationDrawer from "../../../shared/components/NavigationDrawer";
+import NavigationDrawer from "../../shared/components/NavigationDrawer";
 
 const styles = theme => ({
   appBar: {
@@ -42,13 +41,12 @@ const styles = theme => ({
 function NavBar(props) {
   const {
     classes,
-    openRegisterDialog,
-    openLoginDialog,
     handleMobileDrawerOpen,
     handleMobileDrawerClose,
     mobileDrawerOpen,
     selectedTab
   } = props;
+
   const menuItems = [
     {
       link: "/",
@@ -61,13 +59,8 @@ function NavBar(props) {
       icon: <BookIcon className="text-white" />
     },
     {
-      name: "Register",
-      onClick: openRegisterDialog,
-      icon: <HowToRegIcon className="text-white" />
-    },
-    {
-      name: "Login",
-      onClick: openLoginDialog,
+      link: "/billing",
+      name: "Billing Portal",
       icon: <LockOpenIcon className="text-white" />
     }
   ];
@@ -149,8 +142,6 @@ NavBar.propTypes = {
   handleMobileDrawerClose: PropTypes.func,
   mobileDrawerOpen: PropTypes.bool,
   selectedTab: PropTypes.string,
-  openRegisterDialog: PropTypes.func.isRequired,
-  openLoginDialog: PropTypes.func.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(memo(NavBar));

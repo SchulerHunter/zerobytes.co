@@ -8,9 +8,8 @@ import "aos/dist/aos.css";
 import CookieRulesDialog from "./cookies/CookieRulesDialog";
 import CookieConsent from "./cookies/CookieConsent";
 import dummyBlogPosts from "../dummy_data/blogPosts";
-import DialogSelector from "./register_login/DialogSelector";
 import Routing from "./Routing";
-import smoothScrollTop from "../../shared/functions/smoothScrollTop";
+import smoothScrollTop from "../shared/functions/smoothScrollTop";
 
 AOS.init({ once: true });
 
@@ -26,39 +25,20 @@ function Main(props) {
   const [selectedTab, setSelectedTab] = useState(null);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [blogPosts, setBlogPosts] = useState([]);
-  const [dialogOpen, setDialogOpen] = useState(null);
   const [isCookieRulesDialogOpen, setIsCookieRulesDialogOpen] = useState(false);
 
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
-      "Rust - Free template for building a Web or admin application";
+      "Zero Bytes Technology Consulting LLC";
     setSelectedTab("Home");
   }, [setSelectedTab]);
 
   const selectBlog = useCallback(() => {
     smoothScrollTop();
-    document.title = "Rust - Blog";
+    document.title = "Zero Bytes - Blog";
     setSelectedTab("Blog");
   }, [setSelectedTab]);
-
-  const openLoginDialog = useCallback(() => {
-    setDialogOpen("login");
-    setIsMobileDrawerOpen(false);
-  }, [setDialogOpen, setIsMobileDrawerOpen]);
-
-  const closeDialog = useCallback(() => {
-    setDialogOpen(null);
-  }, [setDialogOpen]);
-
-  const openRegisterDialog = useCallback(() => {
-    setDialogOpen("register");
-    setIsMobileDrawerOpen(false);
-  }, [setDialogOpen, setIsMobileDrawerOpen]);
-
-  const openTermsDialog = useCallback(() => {
-    setDialogOpen("termsOfService");
-  }, [setDialogOpen]);
 
   const handleMobileDrawerOpen = useCallback(() => {
     setIsMobileDrawerOpen(true);
@@ -67,10 +47,6 @@ function Main(props) {
   const handleMobileDrawerClose = useCallback(() => {
     setIsMobileDrawerOpen(false);
   }, [setIsMobileDrawerOpen]);
-
-  const openChangePasswordDialog = useCallback(() => {
-    setDialogOpen("changePassword");
-  }, [setDialogOpen]);
 
   const fetchBlogPosts = useCallback(() => {
     const blogPosts = dummyBlogPosts.map((blogPost) => {
@@ -106,14 +82,6 @@ function Main(props) {
           handleCookieRulesDialogOpen={handleCookieRulesDialogOpen}
         />
       )}
-      <DialogSelector
-        openLoginDialog={openLoginDialog}
-        dialogOpen={dialogOpen}
-        onClose={closeDialog}
-        openTermsDialog={openTermsDialog}
-        openRegisterDialog={openRegisterDialog}
-        openChangePasswordDialog={openChangePasswordDialog}
-      />
       <CookieRulesDialog
         open={isCookieRulesDialogOpen}
         onClose={handleCookieRulesDialogClose}
@@ -121,8 +89,6 @@ function Main(props) {
       <NavBar
         selectedTab={selectedTab}
         selectTab={setSelectedTab}
-        openLoginDialog={openLoginDialog}
-        openRegisterDialog={openRegisterDialog}
         mobileDrawerOpen={isMobileDrawerOpen}
         handleMobileDrawerOpen={handleMobileDrawerOpen}
         handleMobileDrawerClose={handleMobileDrawerClose}

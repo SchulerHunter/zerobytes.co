@@ -85,7 +85,6 @@ function PricingSection(props) {
             lg={3}
             data-aos="zoom-in-up"
             data-aos-delay="200"
-            square={true}
           >
             <PriceCard
               highlighted

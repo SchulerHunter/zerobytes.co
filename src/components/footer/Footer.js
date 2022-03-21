@@ -9,13 +9,10 @@ import {
   withStyles,
   withWidth,
   isWidthUp,
-  TextField
 } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
-import WaveBorder from "../../../shared/components/WaveBorder";
 import transitions from "@material-ui/core/styles/transitions";
-import ColoredButton from "../../../shared/components/ColoredButton";
 
 const styles = theme => ({
   footerInner: {
@@ -78,16 +75,16 @@ const styles = theme => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: "+1 555 123456"
+    description: <a href="tel:+16103602551">+1 (610) 360-2551</a>
   },
   {
     icon: <MailIcon />,
-    description: "support@company.com"
+    description: <a href="mailto:admin@zerobytes.co">admin@zerobytes.co</a>
   }
 ];
 
 function Footer(props) {
-  const { classes, theme, width } = props;
+  const { classes, width } = props;
   return (
     <footer className="lg-p-top">
       <div className={classes.footerInner}>
@@ -104,7 +101,7 @@ function Footer(props) {
                         </IconButton>
                       </Box>
                       <Box display="flex" flexDirection="column" justifyContent="center">
-                        <Typography variant="h7" className="text-white">
+                        <Typography className="text-white">
                           {info.description}
                         </Typography>
                       </Box>
@@ -121,10 +118,11 @@ function Footer(props) {
             </Typography>
 
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
-              vehicula sit amet.
+              Zero Bytes Technology Consulting is focused on delivering the best-in-class solutions to any of your data needs.
             </Typography>
           </Grid>
+
+
         </Grid>
       </div>
     </footer>
