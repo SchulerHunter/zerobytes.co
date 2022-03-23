@@ -70,14 +70,19 @@ function NavBar(props) {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <div>
-            <Typography
-              variant="h4"
-              className={classes.brandText}
-              display="inline"
-              color="secondary"
+            <Link
+              to={"/"}
+              className={classes.noDecoration}
             >
-              LandingPage Template
-            </Typography>
+              <Typography
+                variant="h4"
+                className={classes.brandText}
+                display="inline"
+                color="secondary"
+              >
+                Zero Bytes Consulting
+              </Typography>
+            </Link>
           </div>
           <div>
             <Hidden mdUp>

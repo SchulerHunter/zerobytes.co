@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
+  Box,
   Grid,
   Typography,
   isWidthUp,
@@ -48,11 +49,13 @@ const styles = theme => ({
 function PricingSection(props) {
   const { width, classes } = props;
   return (
-    <div className="lg-p-top" style={{ backgroundColor: "#FFFFFF" }}>
-      <Typography variant="h3" align="center" className="lg-mg-bottom">
-        Pricing
-      </Typography>
-      <div className={classNames("container-fluid", classes.containerFix)}>
+    <Box pt={10} style={{ backgroundColor: "#FFFFFF" }}>
+      <Box mb={6}>
+        <Typography variant="h3" align="center">
+          Pricing
+        </Typography>
+      </Box>
+      <Box className={classNames("container-fluid", classes.containerFix)}>
         <Grid
           container
           spacing={calculateSpacing(width)}
@@ -67,15 +70,16 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
           >
             <PriceCard
-              title="Starter"
+              title="The Quick and Easy"
               pricing={
                 <span>
-                  $14.99
-                  <Typography display="inline"> / month</Typography>
+                  $35
+                  <Typography display="inline"> / hour*</Typography>
                 </span>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+              features={["Great for code review", "Pay as you need", "Constant communication"]}
             />
+            <Typography variant="subtitle2">*4 hour minimum</Typography>
           </Grid>
           <Grid
             item
@@ -87,16 +91,14 @@ function PricingSection(props) {
             data-aos-delay="200"
           >
             <PriceCard
-              highlighted
-              title="Premium"
-              square={true}
+              title="The Daily Deal"
               pricing={
                 <span>
-                  $29.99
-                  <Typography display="inline"> / month</Typography>
+                  $250
+                  <Typography display="inline"> / day</Typography>
                 </span>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+              features={["Reviews and consulations", "Hardware and software", "Perfect for short projects"]}
             />
           </Grid>
           <Grid
@@ -109,14 +111,14 @@ function PricingSection(props) {
             data-aos-delay={isWidthUp("md", width) ? "400" : "0"}
           >
             <PriceCard
-              title="Business"
+              title="The Startup Special"
               pricing={
                 <span>
-                  $49.99
+                  $7,500
                   <Typography display="inline"> / month</Typography>
                 </span>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+              features={["Scrums and sprints", "Early finish product support", "Great for startups"]}
             />
           </Grid>
           <Grid
@@ -129,19 +131,19 @@ function PricingSection(props) {
             data-aos-delay={isWidthUp("md", width) ? "600" : "200"}
           >
             <PriceCard
-              title="Tycoon"
+              title="Part of the Team"
               pricing={
                 <span>
-                  $99.99
-                  <Typography display="inline"> / month</Typography>
+                  $85,000
+                  <Typography display="inline"> / year</Typography>
                 </span>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+              features={["Full product support", "Supports idea to launch", "Acting member in team"]}
             />
           </Grid>
         </Grid>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

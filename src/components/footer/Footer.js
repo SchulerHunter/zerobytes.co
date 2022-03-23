@@ -75,11 +75,11 @@ const styles = theme => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: <a href="tel:+16103602551">+1 (610) 360-2551</a>
+    description: <a href="tel:+16103602551" style={{textDecoration: "none"}}>+1 (610) 360-2551</a>
   },
   {
     icon: <MailIcon />,
-    description: <a href="mailto:admin@zerobytes.co">admin@zerobytes.co</a>
+    description: <a href="mailto:admin@zerobytes.co" style={{textDecoration: "none"}}>admin@zerobytes.co</a>
   }
 ];
 
@@ -112,16 +112,25 @@ function Footer(props) {
             </Grid>
           </Hidden>
 
-          <Grid item xs={12} md={8} lg={4} style={{padding:0}}>
+          <Grid item xs={12} md={8} lg={4} style={{paddingTop:0, paddingBottom:0}}>
             <Typography variant="h6" paragraph className="text-white">
               About the Company
             </Typography>
 
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Zero Bytes Technology Consulting is focused on delivering the best-in-class solutions to any of your data needs.
+              Zero Bytes Technology Consulting is focused on delivering the best-in-class solutions for any of your data needs.
             </Typography>
           </Grid>
 
+          <Grid item xs={12} md={8} lg={4} style={{padding:0}}>
+            <Box display="flex" justifyContent="center">
+              <img
+                alt={"Zero Bytes Logo"}
+                src={`${process.env.PUBLIC_URL}/favicon.svg`}
+                style={{maxWidth: "115px", maxHeight: "115px"}}
+              ></img>
+            </Box>
+          </Grid>
 
         </Grid>
       </div>

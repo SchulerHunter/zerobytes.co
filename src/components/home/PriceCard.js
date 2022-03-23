@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Typography, Box, withStyles } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
@@ -31,9 +31,13 @@ const styles = theme => ({
 });
 
 function PriceCard(props) {
-  const { classes, theme, title, pricing, features, highlighted } = props;
+  const [highlighted, setHighlighted] = useState(false);
+  const { classes, theme, title, pricing, features} = props;
   return (
-    <div className={highlighted ? classes.cardHightlighted : classes.card}>
+    <div className={highlighted ? classes.cardHightlighted : classes.card}
+      onMouseEnter={() => setHighlighted(true)}
+      onMouseLeave={() => setHighlighted(false)}
+    >
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h5" : "h6"}
@@ -62,8 +66,7 @@ function PriceCard(props) {
           <Box ml={1}>
             <Typography
               className={highlighted ? "text-white" : null}
-              variant={highlighted ? "h6" : "body1"}
-            >
+              variant="body1">
               {feature}
             </Typography>
           </Box>
@@ -78,7 +81,6 @@ PriceCard.propTypes = {
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-  highlighted: PropTypes.bool
 };
 
 export default withStyles(styles, { withTheme: true })(PriceCard);
