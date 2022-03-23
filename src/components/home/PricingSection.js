@@ -73,13 +73,12 @@ function PricingSection(props) {
               title="The Quick and Easy"
               pricing={
                 <span>
-                  $35
-                  <Typography display="inline"> / hour*</Typography>
+                  $65
+                  <Typography display="inline"> / hour</Typography>
                 </span>
               }
-              features={["Great for code review", "Pay as you need", "Constant communication"]}
+              features={["Great for code review", "Constant communication", "2 hours minimum"]}
             />
-            <Typography variant="subtitle2">*4 hour minimum</Typography>
           </Grid>
           <Grid
             item
@@ -94,7 +93,7 @@ function PricingSection(props) {
               title="The Daily Deal"
               pricing={
                 <span>
-                  $250
+                  $500
                   <Typography display="inline"> / day</Typography>
                 </span>
               }
@@ -114,7 +113,7 @@ function PricingSection(props) {
               title="The Startup Special"
               pricing={
                 <span>
-                  $7,500
+                  $9,000
                   <Typography display="inline"> / month</Typography>
                 </span>
               }
@@ -134,7 +133,7 @@ function PricingSection(props) {
               title="Part of the Team"
               pricing={
                 <span>
-                  $85,000
+                  $100,000
                   <Typography display="inline"> / year</Typography>
                 </span>
               }

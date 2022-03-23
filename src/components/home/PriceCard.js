@@ -48,7 +48,7 @@ function PriceCard(props) {
       </Box>
       <Box mb={2}>
         <Typography
-          variant={highlighted ? "h3" : "h4"}
+          variant={"h4"}
           className={highlighted ? "text-white" : null}
         >
           {pricing}

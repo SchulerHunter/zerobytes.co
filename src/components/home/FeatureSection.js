@@ -1,15 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, isWidthUp, withWidth } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import BuildIcon from "@material-ui/icons/Build";
-import ComputerIcon from "@material-ui/icons/Computer";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
-import CloudIcon from "@material-ui/icons/Cloud";
-import MeassageIcon from "@material-ui/icons/Message";
-import CancelIcon from "@material-ui/icons/Cancel";
+import {
+  Box,
+  Grid,
+  Typography,
+  isWidthUp,
+  withWidth
+} from "@material-ui/core";
+import {
+  BarChart,
+  Build,
+  CalendarToday,
+  Cancel,
+  Cloud,
+  Code,
+  Computer,
+  HeadsetMic,
+  Message
+} from "@material-ui/icons";
 import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
 
@@ -18,82 +26,82 @@ const iconSize = 30;
 const features = [
   {
     color: "#00C853",
-    headline: "Feature 1",
+    headline: "Design and Build Code",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <BuildIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "0",
-    smDelay: "0"
-  },
-  {
-    color: "#6200EA",
-    headline: "Feature 2",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CalendarTodayIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
-    smDelay: "200"
-  },
-  {
-    color: "#0091EA",
-    headline: "Feature 3",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <MeassageIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "400",
-    smDelay: "0"
-  },
-  {
-    color: "#d50000",
-    headline: "Feature 4",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <ComputerIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "0",
-    smDelay: "200"
-  },
-  {
-    color: "#DD2C00",
-    headline: "Feature 5",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <BarChartIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
-    smDelay: "0"
-  },
-  {
-    color: "#64DD17",
-    headline: "Feature 6",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <HeadsetMicIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "400",
-    smDelay: "200"
-  },
-  {
-    color: "#304FFE",
-    headline: "Feature 7",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CloudIcon style={{ fontSize: iconSize }} />,
+      "More than 10 years of experience programming in different languages to serve clients on an array of different projects.",
+    icon: <Build style={{ fontSize: iconSize }} />,
     mdDelay: "0",
     smDelay: "0"
   },
   {
     color: "#C51162",
-    headline: "Feature 8",
+    headline: "Full Stack Development",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CodeIcon style={{ fontSize: iconSize }} />,
+      "Experienced in programming front-end and back-end code, along with database implementations and application development.",
+    icon: <Code style={{ fontSize: iconSize }} />,
     mdDelay: "200",
     smDelay: "200"
   },
   {
-    color: "#00B8D4",
-    headline: "Feature 9",
+    color: "#DD2C00",
+    headline: "Data Analytics",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CancelIcon style={{ fontSize: iconSize }} />,
+      "Used and created various data analytics platforms, along with creating analysis pipelines for use with existing software.",
+    icon: <BarChart style={{ fontSize: iconSize }} />,
+    mdDelay: "200",
+    smDelay: "0"
+  },
+  {
+    color: "#d50000",
+    headline: "Hardware Support",
+    text:
+      "Capable of designing, building, and repairing hardware as needed. Able to perform data backup and recovery when required.",
+    icon: <Computer style={{ fontSize: iconSize }} />,
+    mdDelay: "0",
+    smDelay: "200"
+  },
+  {
+    color: "#304FFE",
+    headline: "Cloud Migration",
+    text:
+      "Moved numerous systems from inhouse baremetal to cloud hosting software to aid in cost reduction and code portability.",
+    icon: <Cloud style={{ fontSize: iconSize }} />,
+    mdDelay: "0",
+    smDelay: "0"
+  },
+  {
+    color: "#64DD17",
+    headline: "Product Support",
+    text:
+      "Can support the product as needed from idea creation, to build, to deployment, and customer or team support when needed.",
+    icon: <HeadsetMic style={{ fontSize: iconSize }} />,
+    mdDelay: "400",
+    smDelay: "200"
+  },
+  {
+    color: "#6200EA",
+    headline: "Timely Implementation",
+    text:
+      "Customers can expect a timely completion to meet their project deadlines. Full implmentation is provided on project completion.",
+    icon: <CalendarToday style={{ fontSize: iconSize }} />,
+    mdDelay: "200",
+    smDelay: "200"
+  },
+  {
+    color: "#0091EA",
+    headline: "Clear Communication",
+    text:
+      "Constant and clear communication is provided through the duration of the contract to assure that you recieve the maximum benefits.",
+    icon: <Message style={{ fontSize: iconSize }} />,
+    mdDelay: "400",
+    smDelay: "0"
+  },
+  {
+    color: "#00B8D4",
+    headline: "Easy Closing",
+    text:
+      "Simple hand off process upon contact completion to make a smooth transition of project ownership to your team.",
+    icon: <Cancel style={{ fontSize: iconSize }} />,
     mdDelay: "400",
     smDelay: "0"
   }
@@ -102,36 +110,36 @@ const features = [
 function FeatureSection(props) {
   const { width } = props;
   return (
-    <div style={{ backgroundColor: "#FFFFFF" }}>
-      <div className="container-fluid lg-p-top">
-        <Typography variant="h3" align="center" className="lg-mg-bottom">
+    <Box pt={10} className="container-fluid" style={{ backgroundColor: "#FFFFFF" }}>
+      <Box mb={6}>
+        <Typography variant="h3" align="center">
           Features
         </Typography>
-        <div className="container-fluid">
-          <Grid container spacing={calculateSpacing(width)}>
-            {features.map(element => (
-              <Grid
-                item
-                xs={6}
-                md={4}
-                data-aos="zoom-in-up"
-                data-aos-delay={
-                  isWidthUp("md", width) ? element.mdDelay : element.smDelay
-                }
-                key={element.headline}
-              >
-                <FeatureCard
-                  Icon={element.icon}
-                  color={element.color}
-                  headline={element.headline}
-                  text={element.text}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </div>
-      </div>
-    </div>
+      </Box>
+      <Box className="container-fluid">
+        <Grid container spacing={calculateSpacing(width)}>
+          {features.map(element => (
+            <Grid
+              item
+              xs={6}
+              md={4}
+              data-aos="zoom-in-up"
+              data-aos-delay={
+                isWidthUp("md", width) ? element.mdDelay : element.smDelay
+              }
+              key={element.headline}
+            >
+              <FeatureCard
+                Icon={element.icon}
+                color={element.color}
+                headline={element.headline}
+                text={element.text}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
   );
 }
 
