@@ -86,7 +86,7 @@ const infos = [
 function Footer(props) {
   const { classes, width } = props;
   return (
-    <footer className="lg-p-top">
+    <Box pt={8}>
       <div className={classes.footerInner}>
         <Grid container spacing={isWidthUp("md", width) ? 10 : 5}>
           <Hidden mdDown>
@@ -134,7 +134,7 @@ function Footer(props) {
 
         </Grid>
       </div>
-    </footer>
+    </Box>
   );
 }
 
