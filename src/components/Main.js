@@ -30,7 +30,7 @@ function Main(props) {
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
-      "Zero Bytes Technology Consulting LLC";
+      "Zero Bytes Technology Consulting";
     setSelectedTab("Home");
   }, [setSelectedTab]);
 

@@ -75,11 +75,11 @@ const styles = theme => ({
 const infos = [
   {
     icon: <PhoneIcon />,
-    description: <a href="tel:+16103602551" style={{textDecoration: "none"}}>+1 (610) 360-2551</a>
+    description: <a href="tel:+16103602551" className="text-white" style={{textDecoration: "none"}}>+1 (610) 360-2551</a>
   },
   {
     icon: <MailIcon />,
-    description: <a href="mailto:admin@zerobytes.co" style={{textDecoration: "none"}}>admin@zerobytes.co</a>
+    description: <a href="mailto:admin@zerobytes.co" className="text-white" style={{textDecoration: "none"}}>admin@zerobytes.co</a>
   }
 ];
 
@@ -118,7 +118,7 @@ function Footer(props) {
             </Typography>
 
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Zero Bytes Technology Consulting is focused on delivering the best-in-class solutions for any of your data needs.
+              Zero Bytes Technology Consulting is focused on delivering the best-in-class solutions for all of your data needs.
             </Typography>
           </Grid>
 
