@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import {
+  Button,
   List,
   ListItem,
   ListItemIcon,
@@ -75,14 +75,12 @@ function NavigationDrawer(props) {
         {menuItems.map(element => {
           if (element.link) {
             return (
-              <Link
-                key={element.name}
-                to={element.link}
-                className={classes.noDecoration}
-                onClick={onClose}
-              >
+
                 <ListItem
-                  button
+                  component={Button}
+                  href={element.link}
+                  key={element.name}
+                  onClick={onClose}
                   selected={selectedItem === element.name}
                   /**
                    * We disable ripple as it will make a weird animation
@@ -100,7 +98,6 @@ function NavigationDrawer(props) {
                     }
                   />
                 </ListItem>
-              </Link>
             );
           }
           return (

@@ -3,17 +3,22 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
   AppBar,
-  Toolbar,
-  Typography,
   Button,
   Hidden,
   IconButton,
+  Toolbar,
+  Typography,
   withStyles
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import BookIcon from "@material-ui/icons/Book";
+import {
+  // Book,
+  Home,
+  LockOpen,
+  Menu,
+  MonetizationOn,
+  RoomService
+} from "@material-ui/icons"
+import QuoteForm from "../home/QuoteForm";
 import NavigationDrawer from "../../shared/components/NavigationDrawer";
 
 const styles = theme => ({
@@ -49,19 +54,29 @@ function NavBar(props) {
 
   const menuItems = [
     {
-      link: "/",
+      link: "#",
       name: "Home",
-      icon: <HomeIcon className="text-white" />
+      icon: <Home className="text-white" />
     },
     {
-      link: "/blog",
-      name: "Blog",
-      icon: <BookIcon className="text-white" />
+      link: "#features",
+      name: "Features",
+      icon: <RoomService className="text-white" />
     },
     {
-      link: "/billing",
+      link: "#prices",
+      name: "Prices",
+      icon: <MonetizationOn className="text-white" />
+    },
+    // {
+    //   link: "#/blog",
+    //   name: "Blog",
+    //   icon: <Book className="text-white" />
+    // },
+    {
+      link: "#/billing",
       name: "Billing Portal",
-      icon: <LockOpenIcon className="text-white" />
+      icon: <LockOpen className="text-white" />
     }
   ];
   
@@ -91,27 +106,23 @@ function NavBar(props) {
                 onClick={handleMobileDrawerOpen}
                 aria-label="Open Navigation"
               >
-                <MenuIcon color="primary" />
+                <Menu color="primary" />
               </IconButton>
             </Hidden>
             <Hidden smDown>
               {menuItems.map(element => {
                 if (element.link) {
                   return (
-                    <Link
+                    <Button
                       key={element.name}
-                      to={element.link}
-                      className={classes.noDecoration}
+                      color="secondary"
+                      size="large"
+                      classes={{ text: classes.menuButtonText }}
+                      href={element.link}
                       onClick={handleMobileDrawerClose}
                     >
-                      <Button
-                        color="secondary"
-                        size="large"
-                        classes={{ text: classes.menuButtonText }}
-                      >
-                        {element.name}
-                      </Button>
-                    </Link>
+                      {element.name}
+                    </Button>
                   );
                 }
                 return (
@@ -126,6 +137,7 @@ function NavBar(props) {
                   </Button>
                 );
               })}
+              <QuoteForm text="Get Quote" textVariant="body"/>
             </Hidden>
           </div>
         </Toolbar>

@@ -10,6 +10,7 @@ import {
   withStyles
 } from "@material-ui/core";
 import PriceCard from "./PriceCard";
+import QuoteForm from "./QuoteForm";
 import calculateSpacing from "./calculateSpacing";
 
 const styles = theme => ({
@@ -49,98 +50,103 @@ const styles = theme => ({
 function PricingSection(props) {
   const { width, classes } = props;
   return (
-    <Box pt={10} style={{ backgroundColor: "#FFFFFF" }}>
-      <Box mb={6}>
-        <Typography variant="h3" align="center">
-          Pricing
-        </Typography>
+    <Box id="prices">
+      <Box pt={10} style={{ backgroundColor: "#FFFFFF" }}>
+        <Box mb={6}>
+          <Typography variant="h3" align="center">
+            Pricing
+          </Typography>
+        </Box>
+        <Box className={classNames("container-fluid", classes.containerFix)}>
+          <Grid
+            container
+            spacing={calculateSpacing(width)}
+            className={classes.gridContainer}
+          >
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={3}
+              className={classes.cardWrapper}
+              data-aos="zoom-in-up"
+            >
+              <PriceCard
+                title="The Quick and Easy"
+                pricing={
+                  <span>
+                    $65
+                    <Typography display="inline"> / hour</Typography>
+                  </span>
+                }
+                features={["Great for code review", "Constant communication", "2 hours minimum"]}
+              />
+            </Grid>
+            <Grid
+              item
+              className={classes.cardWrapperHighlighted}
+              xs={12}
+              sm={6}
+              lg={3}
+              data-aos="zoom-in-up"
+              data-aos-delay="200"
+            >
+              <PriceCard
+                title="The Daily Deal"
+                pricing={
+                  <span>
+                    $500
+                    <Typography display="inline"> / day</Typography>
+                  </span>
+                }
+                features={["Reviews and consulations", "Hardware and software", "Perfect for short projects"]}
+              />
+            </Grid>
+            <Grid
+              item
+              className={classes.cardWrapper}
+              xs={12}
+              sm={6}
+              lg={3}
+              data-aos="zoom-in-up"
+              data-aos-delay={isWidthUp("md", width) ? "400" : "0"}
+            >
+              <PriceCard
+                title="The Startup Special"
+                pricing={
+                  <span>
+                    $9,000
+                    <Typography display="inline"> / month</Typography>
+                  </span>
+                }
+                features={["Scrums and sprints", "Early finish product support", "Great for startups"]}
+              />
+            </Grid>
+            <Grid
+              item
+              className={classes.cardWrapper}
+              xs={12}
+              sm={6}
+              lg={3}
+              data-aos="zoom-in-up"
+              data-aos-delay={isWidthUp("md", width) ? "600" : "200"}
+            >
+              <PriceCard
+                title="Part of the Team"
+                pricing={
+                  <span>
+                    $100,000
+                    <Typography display="inline"> / year</Typography>
+                  </span>
+                }
+                features={["Full product support", "Supports idea to launch", "Acting member in team"]}
+              />
+            </Grid>
+          </Grid>
+        </Box>
       </Box>
-      <Box className={classNames("container-fluid", classes.containerFix)}>
-        <Grid
-          container
-          spacing={calculateSpacing(width)}
-          className={classes.gridContainer}
-        >
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            lg={3}
-            className={classes.cardWrapper}
-            data-aos="zoom-in-up"
-          >
-            <PriceCard
-              title="The Quick and Easy"
-              pricing={
-                <span>
-                  $65
-                  <Typography display="inline"> / hour</Typography>
-                </span>
-              }
-              features={["Great for code review", "Constant communication", "2 hours minimum"]}
-            />
-          </Grid>
-          <Grid
-            item
-            className={classes.cardWrapperHighlighted}
-            xs={12}
-            sm={6}
-            lg={3}
-            data-aos="zoom-in-up"
-            data-aos-delay="200"
-          >
-            <PriceCard
-              title="The Daily Deal"
-              pricing={
-                <span>
-                  $500
-                  <Typography display="inline"> / day</Typography>
-                </span>
-              }
-              features={["Reviews and consulations", "Hardware and software", "Perfect for short projects"]}
-            />
-          </Grid>
-          <Grid
-            item
-            className={classes.cardWrapper}
-            xs={12}
-            sm={6}
-            lg={3}
-            data-aos="zoom-in-up"
-            data-aos-delay={isWidthUp("md", width) ? "400" : "0"}
-          >
-            <PriceCard
-              title="The Startup Special"
-              pricing={
-                <span>
-                  $9,000
-                  <Typography display="inline"> / month</Typography>
-                </span>
-              }
-              features={["Scrums and sprints", "Early finish product support", "Great for startups"]}
-            />
-          </Grid>
-          <Grid
-            item
-            className={classes.cardWrapper}
-            xs={12}
-            sm={6}
-            lg={3}
-            data-aos="zoom-in-up"
-            data-aos-delay={isWidthUp("md", width) ? "600" : "200"}
-          >
-            <PriceCard
-              title="Part of the Team"
-              pricing={
-                <span>
-                  $100,000
-                  <Typography display="inline"> / year</Typography>
-                </span>
-              }
-              features={["Full product support", "Supports idea to launch", "Acting member in team"]}
-            />
-          </Grid>
-        </Grid>
+      <Box textAlign="center" className="container-fluid" pt={6} style={{ backgroundColor: "#FFFFFF"}}>
+        <QuoteForm text="Get A Quote Today" textVariant="h5"/>
       </Box>
     </Box>
   );

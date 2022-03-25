@@ -110,34 +110,36 @@ const features = [
 function FeatureSection(props) {
   const { width } = props;
   return (
-    <Box pt={10} className="container-fluid" style={{ backgroundColor: "#FFFFFF" }}>
-      <Box mb={6}>
-        <Typography variant="h3" align="center">
-          Features
-        </Typography>
-      </Box>
-      <Box className="container-fluid">
-        <Grid container spacing={calculateSpacing(width)}>
-          {features.map(element => (
-            <Grid
-              item
-              xs={6}
-              md={4}
-              data-aos="zoom-in-up"
-              data-aos-delay={
-                isWidthUp("md", width) ? element.mdDelay : element.smDelay
-              }
-              key={element.headline}
-            >
-              <FeatureCard
-                Icon={element.icon}
-                color={element.color}
-                headline={element.headline}
-                text={element.text}
-              />
-            </Grid>
-          ))}
-        </Grid>
+    <Box id="features">
+      <Box pt={10} className="container-fluid" style={{ backgroundColor: "#FFFFFF" }}>
+        <Box mb={6}>
+          <Typography variant="h3" align="center">
+            Features
+          </Typography>
+        </Box>
+        <Box className="container-fluid">
+          <Grid container spacing={calculateSpacing(width)}>
+            {features.map(element => (
+              <Grid
+                item
+                xs={6}
+                md={4}
+                data-aos="zoom-in-up"
+                data-aos-delay={
+                  isWidthUp("md", width) ? element.mdDelay : element.smDelay
+                }
+                key={element.headline}
+              >
+                <FeatureCard
+                  Icon={element.icon}
+                  color={element.color}
+                  headline={element.headline}
+                  text={element.text}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );
