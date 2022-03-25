@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import ParticlesBg from 'particles-bg'
 import classNames from "classnames";
@@ -97,75 +97,73 @@ const styles = (theme) => ({
 function HeadSection(props) {
   const { classes, width } = props;
   return (
-    <Fragment>
-      <Box pt={12} className={classNames(classes.wrapper)}>
-        <Box className={classNames("container-fluid", classes.container)}>
-          <ParticlesBg
-            type="cobweb"
-            num={200}
-            bg={{ width: "100%", height: "100%", position: "absolute", zIndex: "0", top: 0, left: 0, color:"white" }}
-          />
-          <Box display="flex" justifyContent="center" className="row">
-            <Card
-              className={classes.card}
-              data-aos-delay="200"
-              data-aos="zoom-in"
-              square={true}
-            >
-              <div className={classNames(classes.containerFix, "container")}>
-                <Box justifyContent="space-between" className="row">
-                  <Grid item xs={12} md={5}>
-                    <Box
-                      display="flex"
-                      flexDirection="column"
-                      justifyContent="space-between"
-                      height="100%"
-                    >
-                      <Box mb={4}>
+    <Box pt={12} className={classNames(classes.wrapper)}>
+      <Box className={classNames("container-fluid", classes.container)}>
+        <ParticlesBg
+          type="cobweb"
+          num={isWidthUp("lg", width) ? 200 : isWidthUp("sm", width) ? 100 : 50}
+          bg={{ width: "100%", height: "100%", position: "absolute", zIndex: "0", top: 0, left: 0, color:"white" }}
+        />
+        <Box display="flex" justifyContent="center" className="row">
+          <Card
+            className={classes.card}
+            data-aos-delay="200"
+            data-aos="zoom-in"
+            square={true}
+          >
+            <Box className={classNames(classes.containerFix, "container")}>
+              <Box justifyContent="space-between" className="row">
+                <Grid item xs={12} md={5}>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="space-between"
+                    height="100%"
+                  >
+                    <Box mb={4}>
+                      <Typography
+                        variant={isWidthUp("lg", width) ? "h3" : "h4"}
+                      >
+                        Zero Bytes Technology Consulting LLC
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Box mb={2}>
                         <Typography
-                          variant={isWidthUp("lg", width) ? "h3" : "h4"}
+                          variant={isWidthUp("lg", width) ? "h6" : "body1"}
+                          color="textSecondary"
                         >
-                         Zero Bytes Technology Consulting LLC
+                          We believe that technology is the foundation to any great business. Our business is to make sure that your business has the foundation that it needs to grow to its fullest.
                         </Typography>
                       </Box>
-                      <div>
-                        <Box mb={2}>
-                          <Typography
-                            variant={isWidthUp("lg", width) ? "h6" : "body1"}
-                            color="textSecondary"
-                          >
-                            We believe that technology is the foundation to any great business. Our business is to make sure that your business has the foundation that it needs to grow to its fullest.
-                          </Typography>
-                        </Box>
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          fullWidth
-                          className={classes.extraLargeButton}
-                          classes={{ label: classes.extraLargeButtonLabel }}
-                          href="#prices"
-                        >
-                          Learn About Our Offers
-                        </Button>
-                      </div>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        fullWidth
+                        className={classes.extraLargeButton}
+                        classes={{ label: classes.extraLargeButtonLabel }}
+                        href="#prices"
+                      >
+                        Learn About Our Offers
+                      </Button>
                     </Box>
+                  </Box>
+                </Grid>
+                <Hidden smDown>
+                  <Grid item md={6}>
+                    <ZoomImage
+                      src={`${process.env.PUBLIC_URL}/images/header.jpg`}
+                      className={classes.image}
+                      alt="header image of laptop on desk"
+                    />
                   </Grid>
-                  <Hidden smDown>
-                    <Grid item md={6}>
-                      <ZoomImage
-                        src={`${process.env.PUBLIC_URL}/images/header.jpg`}
-                        className={classes.image}
-                        alt="header image of laptop on desk"
-                      />
-                    </Grid>
-                  </Hidden>
-                </Box>
-              </div>
-            </Card>
-          </Box>
+                </Hidden>
+              </Box>
+            </Box>
+          </Card>
         </Box>
       </Box>
-    </Fragment>
+    </Box>
   );
 }
 
