@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
+  Button,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -8,8 +9,7 @@ import {
   Typography,
   withStyles
 } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ColoredButton from "../../shared/components/ColoredButton";
+import { ArrowBack } from "@material-ui/icons";
 
 const styles = theme => ({
   dialogActions: {
@@ -127,18 +127,18 @@ function CookieRulesDialog(props) {
         </Typography>
         <Typography paragraph>
           However if you are still looking for more information then you can
-          contact us by sending an email to tim.v.kaenel@gmail.com.
+          contact us by sending an email to admin@zerobytes.co
         </Typography>
       </DialogContent>
       <DialogActions className={classes.dialogActions}>
-        <ColoredButton
+        <Button
           onClick={onClose}
           variant="contained"
           color={theme.palette.common.black}
         >
-          <ArrowBackIcon className={classes.backIcon} />
+          <ArrowBack className={classes.backIcon} />
           Back
-        </ColoredButton>
+        </Button>
       </DialogActions>
     </Dialog>
   );

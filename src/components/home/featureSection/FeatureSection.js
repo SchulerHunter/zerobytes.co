@@ -18,8 +18,8 @@ import {
   HeadsetMic,
   Message
 } from "@material-ui/icons";
-import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
+import calculateSpacing from "../calculateSpacing";
 
 const iconSize = 30;
 

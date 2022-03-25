@@ -1,6 +1,6 @@
 import React, { memo } from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   AppBar,
   Button,
@@ -18,8 +18,8 @@ import {
   MonetizationOn,
   RoomService
 } from "@material-ui/icons"
-import QuoteForm from "../home/QuoteForm";
-import NavigationDrawer from "../../shared/components/NavigationDrawer";
+import NavigationDrawer from "./NavigationDrawer";
+import QuoteForm from "../home/quoteSection/QuoteForm";
 
 const styles = theme => ({
   appBar: {
@@ -137,7 +137,7 @@ function NavBar(props) {
                   </Button>
                 );
               })}
-              <QuoteForm text="Get Quote" textVariant="body"/>
+              <QuoteForm text="Get Quote" textVariant="body1"/>
             </Hidden>
           </div>
         </Toolbar>

@@ -10,8 +10,10 @@ import {
   withWidth,
   isWidthUp,
 } from "@material-ui/core";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
+import {
+  Phone,
+  Mail
+} from "@material-ui/icons"
 import transitions from "@material-ui/core/styles/transitions";
 
 const styles = theme => ({
@@ -74,11 +76,11 @@ const styles = theme => ({
 
 const infos = [
   {
-    icon: <PhoneIcon />,
+    icon: <Phone />,
     description: <a href="tel:+16103602551" className="text-white" style={{textDecoration: "none"}}>+1 (610) 360-2551</a>
   },
   {
-    icon: <MailIcon />,
+    icon: <Mail />,
     description: <a href="mailto:admin@zerobytes.co" className="text-white" style={{textDecoration: "none"}}>admin@zerobytes.co</a>
   }
 ];

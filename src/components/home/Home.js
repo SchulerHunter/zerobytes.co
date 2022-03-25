@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
-import HeadSection from "./HeadSection";
-import FeatureSection from "./FeatureSection";
-import PricingSection from "./PricingSection";
+import FeatureSection from "./featureSection/FeatureSection";
+import HeadSection from "./headSection/HeadSection";
+import PricingSection from "./pricingSection/PricingSection";
 
 function Home(props) {
   const { selectHome } = props;

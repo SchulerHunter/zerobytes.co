@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const renderMergedProps = (component, ...rest) => {
   const finalProps = Object.assign({}, ...rest);

@@ -10,8 +10,8 @@ import {
   withStyles
 } from "@material-ui/core";
 import PriceCard from "./PriceCard";
-import QuoteForm from "./QuoteForm";
-import calculateSpacing from "./calculateSpacing";
+import QuoteForm from "../quoteSection/QuoteForm";
+import calculateSpacing from "../calculateSpacing";
 
 const styles = theme => ({
   containerFix: {

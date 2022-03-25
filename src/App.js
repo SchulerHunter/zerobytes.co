@@ -1,9 +1,9 @@
 import React, { Fragment, Suspense, lazy } from "react";
-import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import theme from "./theme";
+import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import GlobalStyles from "./GlobalStyles";
-import Pace from "./shared/components/Pace";
+import Pace from "./Pace";
+import theme from "./theme";
 
 const Main = lazy(() => import("./components/Main"));
 

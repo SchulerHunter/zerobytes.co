@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { Portal, Backdrop, withStyles } from "@material-ui/core";
 import ScrollbarSize from "@material-ui/core/Tabs/ScrollbarSize";
-import classNames from "classnames";
 
 const styles = (theme) => ({
   backdrop: {

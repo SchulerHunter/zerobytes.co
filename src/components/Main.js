@@ -1,14 +1,14 @@
 import React, { memo, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import AOS from "aos/dist/aos";
-import { withStyles } from "@material-ui/core";
-import NavBar from "./navigation/NavBar";
-import Footer from "./footer/Footer";
 import "aos/dist/aos.css";
-import CookieRulesDialog from "./cookies/CookieRulesDialog";
+import { withStyles } from "@material-ui/core";
+import BlogPosts from "./blog/BlogPosts";
 import CookieConsent from "./cookies/CookieConsent";
-import dummyBlogPosts from "../dummy_data/blogPosts";
-import Routing from "./Routing";
+import CookieRulesDialog from "./cookies/CookieRulesDialog";
+import Footer from "./footer/Footer";
+import NavBar from "./navigation/NavBar";
+import Routing from "./routing/Routing";
 import smoothScrollTop from "../shared/functions/smoothScrollTop";
 
 AOS.init({ once: true });
@@ -49,7 +49,7 @@ function Main(props) {
   }, [setIsMobileDrawerOpen]);
 
   const fetchBlogPosts = useCallback(() => {
-    const blogPosts = dummyBlogPosts.map((blogPost) => {
+    const blogPosts = BlogPosts.map((blogPost) => {
       let title = blogPost.title;
       title = title.toLowerCase();
       /* Remove unwanted characters, only accept alphanumeric and space */
