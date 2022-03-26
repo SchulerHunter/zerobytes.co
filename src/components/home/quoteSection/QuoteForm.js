@@ -8,9 +8,11 @@ import {
   CardHeader,
   IconButton,
   Modal,
+  Snackbar,
   TextField,
   Typography
 } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { Close } from "@material-ui/icons";
 
 const initialFormValues = {
@@ -50,6 +52,8 @@ const inputFieldValues = [
 const useFormControls = () => {
   const [values, setValues] = useState(initialFormValues);
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState({open: false});
+  const [modalOpen, setModalOpen] = useState(false);
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -86,6 +90,20 @@ const useFormControls = () => {
     });
   }
 
+  const handleFormOpen = (toOpen) => {
+    if (toOpen) {
+      if (values.success) {
+        setAlert({
+          open: true,
+          type: "info",
+          message: "You have already submitted a quote request. If you'd like to submit another, please refresh the page."
+        });
+        return;
+      }
+    }
+    setModalOpen(toOpen);
+  }
+
   const handleInputValue = (e) => {
     const {name, value } = e.target;
 
@@ -107,6 +125,11 @@ const useFormControls = () => {
       data.append("Phone Number", values["phoneNumber"]);
       data.append("Request", values["request"]);
 
+      setValues({
+        ...values,
+        formSubmitted: true
+      })
+
       fetch("https://formspree.io/f/mzbovyow", {
         method: "POST",
         body: data,
@@ -115,17 +138,33 @@ const useFormControls = () => {
         }
       }).then(response => {
         if (response.ok) {
-          console.log("Form submitted successfully");
-          setValues({ ...initialFormValues });
+          setModalOpen(false);
+          setValues({
+            ...values,
+            success: true
+          });
+          setAlert({
+            open: true,
+            type: "success",
+            message: "Form successfully submitted!"
+          });
         } else {
           response.json().then(data => {
             console.log(data);
-            console.log("Error submitting form");
+            setAlert({
+              open: true,
+              type: "error",
+              message: "There was an error in your data. Please try again!"
+            });
           })
         }
       }).catch(error => {
         console.log(error)
-        console.log("Error submitting form")
+        setAlert({
+          open: true,
+          type: "error",
+          message: "There was an error. Please try again!"
+        });
       });
     }
   }
@@ -143,21 +182,35 @@ const useFormControls = () => {
   return {
     handleInputValue,
     handleFormSubmit,
+    handleFormOpen,
     formIsValid,
-    errors
+    setAlert,
+    errors,
+    alert,
+    modalOpen
   }
 }
 
 const QuoteForm = (props) => {
   const {text, textVariant} = props;
-  const [open, setOpen] = useState(false);
-  const {handleInputValue, handleFormSubmit, formIsValid, errors} = useFormControls();
+  const {handleInputValue, handleFormSubmit, handleFormOpen, formIsValid, setAlert, errors, alert, modalOpen} = useFormControls();
 
   return (
     <Fragment>
+      <Snackbar
+        open={alert.open}
+        autoHideDuration={6000}
+        anchorOrigin={{vertical: "bottom", horizontal: "left"}}
+        onClose={() => {setAlert({open: false})}}
+      >
+        <Alert severity={alert.type} variant="filled" sx={{width: "100%"}} onClose={() => {setAlert({open: false})}}>
+          {alert.message}
+        </Alert>
+      </Snackbar>
+
       <Modal
-        open={open}
-        onClose={() => {setOpen(false)}}
+        open={modalOpen}
+        onClose={() => {handleFormOpen(false)}}
         aria-labelledby="quote-modal"
         aria-describedby="modal for recieving quotes"
       >
@@ -169,7 +222,7 @@ const QuoteForm = (props) => {
                   <Typography variant="h5">Get Quote</Typography>
                 </Box>
                 <Box align="right" style={{display: "inline-block", width:"50%"}}>
-                  <IconButton onClick={() => {setOpen(false)}}>
+                  <IconButton onClick={() => {handleFormOpen(false)}}>
                     <Close />
                   </IconButton>
                 </Box>
@@ -213,7 +266,7 @@ const QuoteForm = (props) => {
           </Card>
         </Box>
       </Modal>
-      <Button onClick={() => {setOpen(true)}} align="center" variant="contained" size="large" color="primary">
+      <Button onClick={() => {handleFormOpen(true)}} align="center" variant="contained" size="large" color="primary">
         <Typography align="center" variant={textVariant}>
           {text}
         </Typography>
